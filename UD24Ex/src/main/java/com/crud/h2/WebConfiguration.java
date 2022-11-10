@@ -1,4 +1,4 @@
-package com.Ud24.demo;
+package com.crud.h2;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;

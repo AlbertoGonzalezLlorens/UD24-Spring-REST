@@ -1,11 +1,12 @@
-package com.Ud24.demo.service;
+package com.crud.h2.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.Ud24.demo.dao.IEmpleadoDAO;
-import com.Ud24.demo.dto.Empleado;
+
+import com.crud.h2.dao.IEmpleadoDAO;
+import com.crud.h2.dto.Empleado;
 
 @Service
 public class EmpleadoServiceImpl implements IEmpleadoService{
@@ -20,7 +21,7 @@ public class EmpleadoServiceImpl implements IEmpleadoService{
 	}
 
 	@Override
-	public Empleado guardarCliente(Empleado empleado) {
+	public Empleado guardarEmpleado(Empleado empleado) {
 		
 		return iEmpleadoDAO.save(empleado);
 	}

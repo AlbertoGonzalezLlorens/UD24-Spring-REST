@@ -1,4 +1,4 @@
-package com.Ud24.demo.dto;
+package com.crud.h2.dto;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -24,25 +24,20 @@ public class Empleado {
 	private String trabajo;
 	@Column(name = "salario")
 	private double salario;
+	private String trabajo2;
 
 	
 	public Empleado() {
 	
 	}
 
-	public Empleado(Long id, String nombre, String apellido, String trabajo, double salario) {
+	public Empleado(Long id, String nombre, String apellido, String trabajo) {
 		this.id = id;
 		this.nombre = nombre;
 		this.apellido = apellido;
-		this.trabajo = trabajo;
-		this.salario=salario;
-		/*if (trabajo==trabajo.Jefe) {
-			this.salario = 50000;
-		} else if (trabajo==trabajo.Programador) {
-			this.salario = 25000;
-		} else {
-			this.salario = 10000;
-		}*/
+		trabajo2= comprobarTrabajo(trabajo);
+		this.trabajo=trabajo2;
+		setSalarioTrabajo(trabajo2);
 	}
 
 	
@@ -75,17 +70,52 @@ public class Empleado {
 	}
 
 	public void setTrabajo(String trabajo) {
-		this.trabajo = trabajo;
+		trabajo2 = comprobarTrabajo(trabajo);
+		this.trabajo=trabajo2;
+		setSalarioTrabajo(trabajo2);
 		
 	}
 
 	public double getSalario() {
-		return salario;
+		return this.salario;
+	}
+	
+	public String comprobarTrabajo(String trabajo) {
+		
+		for (Trabajo t : Trabajo.values()) {
+			if (t.name().equals(trabajo)) {
+				return trabajo;
+			}
+		}
+		
+		return(""+Trabajo.Becario);
+	}
+	
+	public void setSalarioTrabajo(String trabajo) {
+		switch (trabajo) {
+			case "Jefe": 
+				this.salario = 50000;
+				break;
+			case "Programador":
+				this.salario = 25000;
+				break;
+			case "Becario":
+				this.salario = 10000;
+				break;	
+		}
+			
+		/*if (trabajo.Jefe) {
+			this.salario = 50000;
+		} else if (trabajo.equals("Programador")) {
+			this.salario = 25000;
+		} else {
+			this.salario = 10000;
+		}*/
+		
 	}
 	
 	public void setSalario(double salario) {
-		this.salario = salario;
-		
+		this.salario = salario;	
 	}
 	
 	@Override

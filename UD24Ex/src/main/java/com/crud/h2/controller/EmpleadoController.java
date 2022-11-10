@@ -1,4 +1,4 @@
-package com.Ud24.demo.controller;
+package com.crud.h2.controller;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,8 +10,9 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.Ud24.demo.dto.Empleado;
-import com.Ud24.demo.service.EmpleadoServiceImpl;
+
+import com.crud.h2.dto.Empleado;
+import com.crud.h2.service.EmpleadoServiceImpl;
 
 @RestController
 @RequestMapping("/api")
@@ -31,9 +32,8 @@ public class EmpleadoController {
 	}
 	
 	@PostMapping("/empleado")
-	public Empleado salvarEmpleado(@RequestBody Empleado empleado) {
-		
-		return empleadoServiceImpl.guardarCliente(empleado);
+	public Empleado salvarEmpleado(Empleado empleado) {
+		return empleadoServiceImpl.guardarEmpleado(empleado);
 	}
 	
 	@GetMapping("/empleado/{id}")
@@ -45,7 +45,7 @@ public class EmpleadoController {
 	}
 	
 	@PutMapping("/empleado/{id}")
-	public Empleado actualizarCliente(@PathVariable(name="id")Long id,@RequestBody Empleado empleado) {
+	public Empleado actualizarEmpleado(@PathVariable(name="id")Long id, Empleado empleado) {
 		
 		Empleado empleado_seleccionado= new Empleado();
 		Empleado empleado_actualizado= new Empleado();

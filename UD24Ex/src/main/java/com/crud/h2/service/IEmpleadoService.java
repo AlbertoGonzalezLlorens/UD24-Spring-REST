@@ -1,12 +1,13 @@
-package com.Ud24.demo.service;
+package com.crud.h2.service;
 
 import java.util.List;
-import com.Ud24.demo.dto.Empleado;
+
+import com.crud.h2.dto.Empleado;
 
 public interface IEmpleadoService {
 
 	public List<Empleado> listarEmpleado();
-	public Empleado guardarCliente(Empleado empleado);
+	public Empleado guardarEmpleado(Empleado empleado);
 	public Empleado empleadoXID(Long id);
 	public List<Empleado> listarEmpleadoNombre(String nombre);
 	public Empleado actualizarEmpleado(Empleado empleado);

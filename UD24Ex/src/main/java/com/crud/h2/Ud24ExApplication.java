@@ -1,4 +1,4 @@
-package com.Ud24.demo;
+package com.crud.h2;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
